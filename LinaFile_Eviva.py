@@ -1,19 +1,23 @@
 
 # coding: utf-8
 
-# # File PATHs الكود الحالي مظبوط على الملف القديم , لو الملف الجديد مشابه للقديم : لا نحتاج تغيير في الكود
+# %%html
+# <p style="color:red;font-size:20px"> File PATHs الكود الحالي مظبوط على الملف القديم , لو الملف الجديد مشابه للقديم : لا نحتاج تغيير في الكود</p>
 
-# In[1]:
-
-
-Path = 'L:\\_Cloud\\Dropbox\\_Taacis_Working_Folder\\_DataScience\\_Eviva\\_SellerCloud\\_Inventory_PredictedPurchase\\'
-NewLinaExcelFile = Path + 'Lina_12Feb18.xlsx'
-PrevLinaExcelFile = Path + '21Jan18\\Lina_21Jan18.xlsx'
+# In[326]:
 
 
-# # Import the PREVIOUS Excel file
+NewLinaExcelFile='L:\\_Cloud\\Dropbox\\_Taacis_Working_Folder\\_DataScience\\_Eviva\\_SellerCloud\\_Inventory_PredictedPurchase\\Lina_12Feb18.xlsx'
+PrevLinaExcelFile = 'L:\\_Cloud\\Dropbox\\_Taacis_Working_Folder\\_DataScience\\_Eviva\\_SellerCloud\\_Inventory_PredictedPurchase\\21Jan18\\Lina_21Jan18.xlsx'
 
-# In[2]:
+
+# In[327]:
+
+
+get_ipython().run_cell_magic('html', '', '<p style="color:red;font-size:20px"> Import the PREVIOUS Excel file </p>')
+
+
+# In[328]:
 
 
 import pandas as pd
@@ -27,9 +31,13 @@ except:
 dfPrevLina[15:18]
 
 
-# # Import the NEW Excel file
+# In[329]:
 
-# In[3]:
+
+get_ipython().run_cell_magic('html', '', '<p style="color:red;font-size:20px"> Import the NEW Excel file </p>')
+
+
+# In[330]:
 
 
 import pandas as pd
@@ -43,9 +51,13 @@ except:
 dfNewLina[15:18]
 
 
-# # Compare #No of Columns and Columns Names in New & Prev Lina's File
+# In[1]:
 
-# In[4]:
+
+get_ipython().run_cell_magic('html', '', '<p style="color:red;font-size:20px"> Compare #No of Columns and Columns Names in New & Prev Lina\'s File </p>')
+
+
+# In[337]:
 
 
 #1st Check the #No of Columns in both file
@@ -72,9 +84,13 @@ else:
     print('Error: Check Columns Names')
 
 
-# # Understand the Anatomy of your Columns
+# In[338]:
 
-# In[5]:
+
+get_ipython().run_cell_magic('html', '', '<p style="color:red;font-size:20px"> Understand the Anatomy of your Columns </p>')
+
+
+# In[339]:
 
 
 i=0
@@ -83,15 +99,19 @@ for c in dfNewLina.columns:
     i+=1
 
 
-# In[7]:
+# In[340]:
 
 
 dfNewLina.columns
 
 
-# # RENAME the Columns with your own Names
+# In[1]:
 
-# In[8]:
+
+get_ipython().run_cell_magic('html', '', '<p style="font-size:20px;color:red"> RENAME the Columns with your own Names </p>')
+
+
+# In[352]:
 
 
 NewColNames=('FactoryName','PO_Date_OrderOn','PoNumber','SKU','Qty','ETA','ArrivalDate','PoNumberSC','Cost','AddedToSC','QtyAddedToSC','Comments')
@@ -107,9 +127,13 @@ print(dfMyLina.shape)
 dfMyLina[15:18]
 
 
-# # Delete any ROW with ALL values = NaN
+# In[3]:
 
-# In[9]:
+
+get_ipython().run_cell_magic('html', '', '<p style="font-size:20px;color:red"> Delete any ROW with ALL values = NaN </p>')
+
+
+# In[354]:
 
 
 dfNoNaN = dfMyLina.dropna(axis=0, how='all')
@@ -118,9 +142,13 @@ print(dfNoNaN.shape)
 dfNoNaN[15:18]
 
 
-# # SELECT needed columns ONLY
+# In[4]:
 
-# In[10]:
+
+get_ipython().run_cell_magic('html', '', '<p style="font-size:20px;color:red"> SELECT needed columns ONLY </p>')
+
+
+# In[356]:
 
 
 df01 = dfNoNaN[['SKU','Qty','ETA','ArrivalDate','PO_Date_OrderOn','PoNumber']]
