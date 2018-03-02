@@ -30,12 +30,12 @@ except:
     print('ERROR: File NOT found')
  
 #-----------------------------------------------------------------------------
-#Compare #No of Columns and Columns Names in New & Prev Lina's File
+#Compare No of Columns and Columns Names in New & Prev Lina's File
+
 #1st Check the #No of Columns in both file
 NewRowCnt, NewColCnt =  dfNewLina.shape
 PrevRowCnt, PrevColCnt = dfPrevLina.shape
 print(NewRowCnt, NewColCnt,PrevRowCnt, PrevColCnt)
-
 if NewColCnt == PrevColCnt:
     print('OK: Number of Columns are the SAME')
 else:
@@ -44,22 +44,21 @@ else:
 # 2nd check the Columns NAMEs 
 N = [[] for k in range(NewColCnt)]
 P = [[] for k in range(NewColCnt)]
-
 for i in range(NewColCnt):
     N[i]=dfNewLina.columns[i]
     P[i]=dfPrevLina.columns[i]
-    
+
 if N == P:
     print('OK: Column Names are the SAME')
 else:
     print('Error: Check Columns Names')
 
 #-----------------------------------------------------------------------------
+
 #Understand the Anatomy of your Columns
-i=0
-for c in dfNewLina.columns: 
+for i, c in enumerate(dfNewLina.columns): 
     print('{}=>{}<'.format(i,c))
-    i+=1
+
 print(dfNewLina.columns)
 
 #-----------------------------------------------------------------------------
@@ -67,26 +66,14 @@ print(dfNewLina.columns)
 NewColNames=('FactoryName','PO_Date_OrderOn','PoNumber','SKU','Qty','ETA','ArrivalDate','PoNumberSC','Cost','AddedToSC','QtyAddedToSC','Comments')
 
 NewOldColNames = {}
-i=0
-for c in dfNewLina.columns:
+for i, c in enumerate(dfNewLina.columns):
     NewOldColNames[NewColNames[i]] = c
-    i += 1
 
 dfMyLina=dfNewLina
 
-i = 0
 for col in dfMyLina.columns:
     dfMyLina=dfMyLina.rename(columns={col:list(NewOldColNames.keys())[list(NewOldColNames.values()).index(col)]}) # list(mydict.keys())[list(mydict.values()).index(16)]
-    # list(NewOldColNames.keys())[list(NewOldColNames.values()).index(col)] 
-    i += 1
 
-#i=0
-#for col in dfMyLina.columns:
-#    dfMyLina=dfMyLina.rename(columns={col:NewColNames[i]}) #dfMyLina =dfMyLina.rename(columns={dfNewLina.columns[0]:NewColNames[0]})
-#    i+=1
- 
-#print(dfMyLina.shape)
-#print(NewOldColNames)
 print(dfMyLina[15:18])
 
 # Original Index
@@ -170,7 +157,7 @@ for index, row in df02.iterrows():
 a
 
 
-writer = pd.ExcelWriter('L:\\output.xlsx',
+writer = pd.ExcelWriter( 'C:\\Users\\msaservice\\Documents\\GitHub\\Inventory_PP\\output.xlsx',
                         engine='xlsxwriter',
                         datetime_format='d mmm yyyy hh:mm:ss',
                         date_format='dd mmmm yyyy')
