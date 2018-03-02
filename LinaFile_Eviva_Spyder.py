@@ -236,5 +236,8 @@ for elem in TypeError:
 
 list(dfNewLina.columns).index('ETA')
 
-
-writer.save()
+try:
+    writer.save()
+except:
+    print("Error: Can NOT write the Excel file")
+    
