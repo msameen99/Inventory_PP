@@ -8,6 +8,18 @@ Created on Fri Mar  2 17:54:31 2018
 import pandas as pd
 from datetime import *
 
+import tkinter
+from tkinter import messagebox
+ 
+# hide main window
+root = tkinter.Tk()
+root.withdraw()
+ 
+# message box display
+messagebox.showinfo("Information","Informative message")
+messagebox.showerror("Error", "Error message")
+messagebox.showwarning("Warning","Warning message")
+
 Path = 'L:\\_Cloud\\Dropbox\\_Taacis_Working_Folder\\_DataScience\\_Eviva\\_SellerCloud\\_Inventory_PredictedPurchase\\'
 NewLinaExcelFile = Path + 'PO containers in the water_25Feb18.xlsx'
 PrevLinaExcelFile = Path + '21Jan18\\PO containers in the water_21Jan18.xlsx'
@@ -49,7 +61,7 @@ for i in range(NewColCnt):
     P[i]=dfPrevLina.columns[i]
 
 if N == P:
-    print('OK: Column Names are the SAME')
+    messagebox.showinfo("Title", "a Tk MessageBox") #print('OK: Column Names are the SAME')
 else:
     print('Error: Check Columns Names')
 
