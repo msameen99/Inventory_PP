@@ -1,0 +1,19 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block navbar %}
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index')}}"> 
+                SKU's 
+            </a>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% block my_page_content %}
+        
+        {% endblock %}
+    </div>
+{% endblock %}

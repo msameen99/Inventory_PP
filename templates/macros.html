@@ -1,0 +1,11 @@
+{% macro bold_cell(value, hl) %}
+    <td {% if hl %} class="warning" {% endif %} >
+        {{ value }}
+    </td>
+{% endmacro %}
+
+{% macro show_row(Price, Min, Max) %}
+        {% set hl = (Price >= Max + 1) or (Price <= Min - 1) %}
+         {{ bold_cell( Price, hl) }}
+         
+{% endmacro %}

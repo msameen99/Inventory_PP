@@ -1,0 +1,46 @@
+{# Comments : {% import 'macros.html' as macros %}     {{ macros.show_row(SKU,Prices,Highlight) }}  #}
+
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% import 'macros.html' as macros %} 
+
+{% block title %} SKU's with Prices {% endblock %}
+
+{% block my_page_content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                {{ wtf.quick_form(form) }}
+                {% if name %}
+                <h1> Hello, {{ name }} </h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <h2> SKUs - Prices - Highlights </h2>
+    <h3> Review Please </h3>
+    <table class="table table-hover">
+        <tr>
+            <th> SKU </th>
+            <th> MAP </th>
+            <th> MSRP </th>
+            <th> Cost </th>
+            <th> Amazon Cost </th>
+        </tr>
+
+        {% for sk in SKU %}
+            <tr>
+                <td> {{ sk }} </td>
+                {{ macros.show_row(Prices[sk]['MAP'], Highlight['MinMap'], Highlight['MaxMap']) }}
+                {{ macros.show_row(Prices[sk]['MSRP'], Highlight['MinMsrp'], Highlight['MaxMsrp']) }}
+                {{ macros.show_row(Prices[sk]['Cost'], Highlight['MinCost'], Highlight['MaxCost']) }}
+                {{ macros.show_row(Prices[sk]['Amazon Cost'], Highlight['MinAmzCost'], Highlight['MaxAmzCost']) }}
+            
+            </tr>
+        {% endfor %}
+        
+    </table>
+{% endblock %}
