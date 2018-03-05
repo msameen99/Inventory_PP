@@ -1,0 +1,38 @@
+
+{% set DivClass01 = "form-group" %}
+{% set LblClass01 = "col-lg-2 control-lable" %}
+{% set DivClass02 = "col-lg-10" %}
+
+{% macro render_field(field) %}
+    {% set Lbl01 = field.label.text %}
+    <div class= {{ DivClass01 }}>
+        <lable for = "{{ field.lable }}" class= "{{ LblClasss01 }}"> {{ Lbl01 }} </lable>
+        <div class = {{ DivClass02 }}>
+            {{ field(class="form-control", **kwargs)|safe }}
+            <ul>
+                {% for error in field.errors %}
+                    <li style="color:red;"> {{ error }} </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro render_radio_field(field) %}
+    {% set Lbl01 = field.label.text %}
+    <div class= {{ DivClass01 }}>
+        <lable class= "{{ LblClasss01 }}"> {{ Lbl01 }} </lable>
+        <div class = {{ DivClass02 }}>
+            {% for subfield in field %}
+                <div class="radio">
+                    <label>
+                        {{ subfield }}
+                        {{ subfield.label.text }}
+                    </label>
+                </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+{% endmacro %}
