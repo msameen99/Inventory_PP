@@ -5,7 +5,7 @@
 
 {% import 'macros.html' as macros %} 
 
-{% block title %} SKU's with Prices {% endblock %}
+{% block title %} Predected Purchase with Lina's File {% endblock %}
 
 {% block my_page_content01 %}
     <div class="container">
@@ -18,31 +18,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block my_page_content %}
-
-    <h2> SKUs - Prices - Highlights </h2>
-    <h3> Review Please </h3>
-    <table class="table table-hover">
-        <tr>
-            <th> SKU </th>
-            <th> MAP </th>
-            <th> MSRP </th>
-            <th> Cost </th>
-            <th> Amazon Cost </th>
-        </tr>
-
-        {% for sk in SKU %}
-            <tr>
-                <td> {{ sk }} </td>
-                {{ macros.show_row(Prices[sk]['MAP'], Highlight['MinMap'], Highlight['MaxMap']) }}
-                {{ macros.show_row(Prices[sk]['MSRP'], Highlight['MinMsrp'], Highlight['MaxMsrp']) }}
-                {{ macros.show_row(Prices[sk]['Cost'], Highlight['MinCost'], Highlight['MaxCost']) }}
-                {{ macros.show_row(Prices[sk]['Amazon Cost'], Highlight['MinAmzCost'], Highlight['MaxAmzCost']) }}
-            
-            </tr>
-        {% endfor %}
-        
-    </table>
 {% endblock %}

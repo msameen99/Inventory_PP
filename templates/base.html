@@ -4,22 +4,23 @@
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('index')}}"> 
-                SKU's 
+                Predected Purchase with Lina's File 
             </a>
         </div>
     </nav>
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        {% block my_page_content01 %}
-        
-        {% endblock %}
-    </div>
 
     <div class="container">
         {% block my_page_content %}
         
         {% endblock %}
     </div>
+    <div class="container">
+        {% block my_page_content01 %}
+        
+        {% endblock %}
+    </div>
+
 {% endblock %}
