@@ -20,6 +20,7 @@ def index():
         name = form.name.data
         form.name.data = ''
 
+
     SKU = ['EVVN001', 'EVVN070', 'EVVN090', 'EVVN300', 'EVVN600', 'EVFT02', 'EVFT05', 'EVMR01', 'EVMR02', 'EVMR03', 'EVAC001', 'EVAC002', 'EVAC003', 'EVAC004', 'EVAC005']
     Prices = {
         SKU[0]: {'MAP': 110, 'MSRP': 230, 'Cost': 60, 'Amazon Cost': 100},
