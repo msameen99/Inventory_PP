@@ -6,7 +6,7 @@ from wtforms.validators import Required, Length, InputRequired
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-app.config['SECRET_KEY'] = 'top secret!'
+app.config['SECRET_KEY'] = 'My top secret!'
 
 class NameForm(Form):
     name = StringField('What is your name?', validators=[Required(), Length(1,16)])
